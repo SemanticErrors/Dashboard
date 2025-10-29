@@ -1,0 +1,147 @@
+@import "./variables";
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.login-card {
+  background: $card-bg;
+  width: 100%;
+  max-width: 520px;
+  border-radius: $radius;
+  padding: 48px 40px;
+  box-shadow: $shadow-orange;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  border: $border;
+
+  // Retro stripe decoration
+  &::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 16px;
+    background: linear-gradient(90deg,
+      $retro-orange 0%,
+      $retro-orange 33%,
+      $retro-brown 33%,
+      $retro-brown 66%,
+      $retro-turquoise 66%,
+      $retro-turquoise 100%
+    );
+    border-radius: 8px;
+  }
+
+  .title {
+    margin: 0 0 8px 0;
+    font-size: 48px;
+    color: $retro-brown;
+    text-align: center;
+    font-family: 'Righteous', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 0px rgba($retro-orange, 0.3);
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    color: $retro-brown;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+
+    input {
+      padding: 14px 18px;
+      border-radius: $radius;
+      border: 3px solid $retro-brown;
+      outline: none;
+      font-size: 16px;
+      background: white;
+      color: $retro-text-dark;
+      font-family: 'Barlow', sans-serif;
+      transition: all 0.3s;
+
+      &:focus {
+        border-color: $retro-orange;
+        box-shadow: 0 0 0 4px rgba($retro-orange, 0.2);
+      }
+
+      &::placeholder {
+        color: $muted;
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 12px;
+    padding: 16px 20px;
+    border-radius: $radius;
+    border: none;
+    background: linear-gradient(135deg, $retro-orange 0%, $retro-orange-deep 100%);
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Righteous', sans-serif;
+    transition: all 0.3s;
+    position: relative;
+    box-shadow: 0 6px 0 $retro-brown, $shadow-orange;
+
+    &:hover {
+      transform: translateY(2px);
+      box-shadow: 0 4px 0 $retro-brown, $shadow-orange;
+    }
+
+    &:active {
+      transform: translateY(6px);
+      box-shadow: 0 0 0 $retro-brown, $shadow-orange;
+    }
+  }
+
+  .error {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 12px;
+    border-radius: $radius;
+    background: $retro-orange-deep;
+    font-weight: 600;
+    animation: errorPulse 1s ease-in-out;
+  }
+
+  .hint {
+    color: $muted;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: $radius;
+    background: rgba($retro-turquoise, 0.15);
+    font-weight: 600;
+  }
+}
+
+@keyframes errorPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}

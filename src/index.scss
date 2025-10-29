@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Barlow:wght@400;600;700;900&display=swap');
+@import "./styles/variables";
+@import "./styles/login";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Barlow', 'Arial', sans-serif;
+  margin: 0;
+  background: $retro-cream;
+  color: $retro-text-dark;
+  position: relative;
+
+  // Halftone dots pattern (70s style)
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba($retro-turquoise, 0.08) 1px, transparent 1px);
+    background-size: 12px 12px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // Curved stripe decoration (top right corner)
+  &::after {
+    content: "";
+    position: fixed;
+    top: -200px;
+    right: -200px;
+    width: 800px;
+    height: 800px;
+    background:
+      linear-gradient(135deg,
+        transparent 45%,
+        rgba($retro-orange, 0.1) 45%,
+        rgba($retro-orange, 0.1) 50%,
+        rgba($retro-brown, 0.1) 50%,
+        rgba($retro-brown, 0.1) 55%,
+        rgba($retro-turquoise, 0.1) 55%,
+        rgba($retro-turquoise, 0.1) 60%,
+        transparent 60%
+      );
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
